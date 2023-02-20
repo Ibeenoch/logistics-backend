@@ -1,24 +1,28 @@
+CREATE DATABASE transportation;
+
+use transportation;
+
+show tables;
+
 CREATE TABLE customers (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
-  pickup_location VARCHAR(255) NOT NULL,
-  dropoff_location VARCHAR(255) NOT NULL,
+  pick_up_location VARCHAR(255) NOT NULL,
+  drop_off_location VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE planner (
-  id INT NOT NULL AUTO_INCREMENT,
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  customer_id INT(11) NOT NULL,
   date DATE NOT NULL,
-  slot1 INT DEFAULT NULL,
-  slot2 INT DEFAULT NULL,
-  slot3 INT DEFAULT NULL,
-  slot4 INT DEFAULT NULL,
+  name varchar(255) not null,
+  pick_up_location varchar(255) not null,
+  drop_off_location varchar(255) not null,
   PRIMARY KEY (id)
+
 );
 
-CREATE TABLE delivery_options (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  option_name VARCHAR(50) NOT NULL
-);
+describe customers;
 
-ALTER TABLE customers ADD COLUMN delivery_option_id INT;
+describe planner;
